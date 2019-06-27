@@ -1,0 +1,16 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+    <div class="jumbotron">
+        <h1>Dog Dairy Entry</h1>
+        <p>add a diary to your dog's life</p>
+    </div>
+
+    <form method="post" action="/processform">
+      comments: <textarea id="theComments" name="theComments"></textarea>
+
+
+      <input type="submit">
+    </form>
+
+
+<%- include('bootfooter') -%>
