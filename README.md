@@ -1,2 +1,0 @@
-# DogDiary
-JBS Personal Project

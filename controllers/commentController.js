@@ -2,15 +2,16 @@
 const Comment = require( '../models/Comment' );
 
 exports.saveComment = ( req, res ) => {
-  //console.log("in saveSkill!")
-  //console.dir(req)
+  //console.log("in save!")
+  //console.dir(req.body)
   let newComment = new Comment(
    {
     comment: req.body.comment
    }
   )
 
-  //console.log("skill = "+newSkill)
+  //console.log("comment = ")
+  //console.dir(newComment)
 
   newComment.save()
     .then( () => {
@@ -25,10 +26,11 @@ exports.saveComment = ( req, res ) => {
 
 // this displays all of the skills
 exports.getAllComments = ( req, res ) => {
-  //gconsle.log('in getAllSkills')
+  //console.log('in getAll...')
   Comment.find()
     .exec()
     .then( ( comments ) => {
+      //console.dir(comments)
       res.render( 'comments', {
         comments:comments, title:"Comments"
       } );
