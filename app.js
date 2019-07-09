@@ -15,7 +15,7 @@ flash = require('connect-flash')
 
 const MONGODB_URI = 'mongodb://heroku_66kshg28:fhitccl2d8h8u7cfnsfrikkc4m@ds249267.mlab.com:49267/heroku_66kshg28';
 const mongoose = require( 'mongoose' );
-mongoose.connect( MONGOLAB_URI, {useNewUrlParser: true} );
+mongoose.connect( MONGODB_URI, {useNewUrlParser: true} );
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
