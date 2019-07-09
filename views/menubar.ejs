@@ -9,9 +9,12 @@
       <li class="nav-item active">
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
+
+      <% if (loggedIn) {%>
       <li class="nav-item">
         <a class="nav-link" href="/showComments">ShowComments</a>
       </li>
+      <% } %>
 
 
 
@@ -20,8 +23,7 @@
           Demo pages
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/griddemo">Bootstrap Grid Demo</a>
-          <a class="dropdown-item" href="/bmidemo">BMI Demo</a>
+          <a class="dropdown-item" href="/ageCalc">Dog Age Ccalculator</a>
         </div>
       </li>
 

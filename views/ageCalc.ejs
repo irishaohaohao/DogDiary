@@ -1,0 +1,40 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+
+    <div class="col">
+          <h2>Calculate your dog's human age!</h2>
+          <table class="table table-bordered">
+            <tr>
+              <td>Dog Age</td>
+              <td><input type="text" id="dogage" > &nbsp years old </td>
+            </tr>
+            <tr>
+              <td>Human Age</td>
+              <td>
+                <output id="humanage" name="x" for="a b"></output>
+              </td><br>
+            </tr>
+          </table>
+        </div>
+
+        <div class="col">
+          <button onClick="calc()" type="button" class="btn btn-primary">Calculate</button>
+          <script>
+            function calc(){
+              var dogAge = document.getElementById('dogage')
+              var humanAge = document.getElementById('humanage')
+              humanAge.value = 7*dogAge.value
+            }
+          </script>
+
+          <button onClick="erase()" type="button" class="btn btn-primary">Reset</button>
+          <script>
+            function erase(){
+              var dogAge = document.getElementById('dogage')
+              var humanAge = document.getElementById('humanage')
+              dogAge.value=""
+              humanAge.value=""
+            }
+          </script>
+
+<%- include('bootfooter') -%>

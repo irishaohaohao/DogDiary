@@ -24,6 +24,7 @@ db.once('open', function() {
 const commentController = require('./controllers/commentController')
 const profileController = require('./controllers/profileController')
 const forumPostController = require('./controllers/forumPostController')
+const recipeController = require('./controllers/recipeController')
 
 // Authentication
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -173,19 +174,20 @@ app.get('/showPost/:id',
         forumPostController.attachAllForumComments,
         forumPostController.showOnePost)
 
-app.post('/saveForumComment',forumPostController.saveForumComment)
-
-
-
-
-app.get('/griddemo', function(req, res, next) {
-  res.render('griddemo',{title:"Grid Demo"});
+//quiz 3
+app.get('/recipe', function(req, res, next) {
+  res.render('recipes',{title:"Recipes"});
 });
+app.post('/processRecipe', recipeController.saveRecipes)
+
+app.get('/recipeAdded', recipeController.getAllRecipes)
+
+app.post('/recipeDelete',recipeController.deleteRecipe)
 
 
 
-app.get('/bmidemo', (req, res) => {
-  res.render('bmidemo',{title:"BMI Demo"});
+app.get('/ageCalc', (req, res) => {
+  res.render('ageCalc',{title:"Dog Age Calculator"});
 });
 
 

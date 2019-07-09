@@ -1,10 +1,5 @@
 module.exports = {
 
-
-    'googleAuth' : {
-        'clientID': '246096591118-ti33uv184e4m1bib9grgn8alm45btadb.apps.googleusercontent.com',
-        'clientSecret'  : 'iqgLqu6pXgLuHsZFq6nvxDX3',
-        'callbackURL'   : 'http://127.0.0.1:5500/login/authorized'
-    }
-
-};
+  'clientID': '335748803649-lthjp77g1tkcn82ptmplla9bll2cjbl5.apps.googleusercontent.com',
+      'clientSecret'  : 'ZX1nTUPD-pJEYvEheiYPQWua',
+      'callbackURL'   : 'https://flannel-syrup-60974.herokuapp.com/login/authorized'
