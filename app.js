@@ -13,14 +13,6 @@ User = require( './models/User' ),
 flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
-const MONGODB_URI = 'mongodb://heroku_66kshg28:fhitccl2d8h8u7cfnsfrikkc4m@ds249267.mlab.com:49267/heroku_66kshg28';
-const mongoose = require( 'mongoose' );
-mongoose.connect( MONGODB_URI, {useNewUrlParser: true} );
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log("we are connected!!!")
-});
 
 const commentController = require('./controllers/commentController')
 const profileController = require('./controllers/profileController')
@@ -34,6 +26,15 @@ const passport = require('passport')
 const configPassport = require('./config/passport')
 configPassport(passport)
 
+
+const MONGODB_URI = 'mongodb://heroku_66kshg28:fhitccl2d8h8u7cfnsfrikkc4m@ds249267.mlab.com:49267/heroku_66kshg28';
+const mongoose = require( 'mongoose' );
+mongoose.connect( MONGODB_URI, {useNewUrlParser: true} );
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log("we are connected!!!")
+});
 
 var app = express();
 
