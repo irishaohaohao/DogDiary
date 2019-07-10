@@ -176,7 +176,7 @@ app.get('/showPost/:id',
         forumPostController.showOnePost)
 
 //quiz 3
-app.get('/recipe', function(req, res, next) {
+app.get('/recipes', function(req, res, next) {
   res.render('recipes',{title:"Recipes"});
 });
 app.post('/processRecipe', recipeController.saveRecipes)
