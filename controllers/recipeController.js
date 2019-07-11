@@ -28,9 +28,9 @@ exports.getAllRecipes = ( req, res ) => {
   //gconsle.log('in getAllSkills')
   Recipe.find()
     .exec()
-    .then( ( recipe ) => {
+    .then( ( recipes ) => {
       res.render( 'recipes', {
-        recipe:recipe, title:"recipe"
+        recipes:recipes, title:"recipes"
       } );
     } )
     .catch( ( error ) => {

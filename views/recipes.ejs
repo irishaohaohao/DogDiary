@@ -15,15 +15,15 @@
 
     <form method="post" action="/recipeDelete">
       <ol>
-        <% for(i = 0; i<recipe.length; i++){  %>
+        <% for(i = 0; i<recipes.length; i++){  %>
             <li>
-                  <b> Name:<%= recipe[i].name %> </b>
-                      user: <%= recipe[i].userName %>   <br>
-                      Created At:<%= recipe[i].createdAt %>   <br>
-                      ingredient:<%= recipe[i].ingredient %>    <br>
-                  <i> description:<%= recipe[i].description %>    </i>
-                  <% if (recipe[i].userName.equals(user.Name)) { %>
-                      <input type="checkbox" name="delete" value="<%= recipe[i]._id %>">
+                  <b> Name:<%= recipes[i].name %> </b>
+                      user: <%= recipes[i].userName %>   <br>
+                      Created At:<%= recipes[i].createdAt %>   <br>
+                      ingredient:<%= recipes[i].ingredient %>    <br>
+                  <i> description:<%= recipes[i].description %>    </i>
+                  <% if (recipes[i].userName.equals(user.Name)) { %>
+                      <input type="checkbox" name="delete" value="<%= recipes[i]._id %>">
                   <% } %>
             </li>
         <% } %>

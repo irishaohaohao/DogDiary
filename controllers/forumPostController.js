@@ -13,8 +13,10 @@ exports.saveForumPost = ( req, res ) => {
    {
     userId: req.user._id,
     userName:req.user.googlename,
-    post: req.body.post,
-    createdAt: new Date()
+    createdAt: new Date(),
+    title: req.body.title,
+    highlight: req.body.highlight
+
    }
   )
 

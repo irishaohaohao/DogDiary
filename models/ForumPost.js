@@ -6,8 +6,11 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 var forumPostSchema = Schema( {
   userId: ObjectId,
   userName: String,
-  post: String,
+  title: String,
+  highlight: String,
+  detail: String,
   createdAt: Date
 } );
+
 
 module.exports = mongoose.model( 'ForumPost', forumPostSchema );
