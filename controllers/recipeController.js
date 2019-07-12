@@ -27,7 +27,7 @@ exports.saveRecipes = ( req, res ) => {
 
 exports.getAllRecipes = ( req, res ) => {
   //gconsle.log('in getAllSkills')
-  Recipe.find()
+  Recipe.find({}).sort({createdAt: -1})
     .exec()
     .then( ( recipes ) => {
       res.render( 'recipes', {
