@@ -10,6 +10,7 @@ exports.saveRecipes = ( req, res ) => {
     ingredient: req.body.ingredient,
     description: req.body.description,
     userName: req.user.userName,
+    userID: req.user._id,
     createdAt: new Date()
    })
 

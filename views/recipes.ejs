@@ -22,7 +22,7 @@
                       Created At:<%= recipes[i].createdAt %>   <br>
                       ingredient:<%= recipes[i].ingredient %>    <br>
                   <i> description:<%= recipes[i].description %>    </i>
-                  <% if (recipes[i].userName.equals(user.userName)) { %>
+                  <% if (recipes[i].userID.equals(user._id)) { %>
                       <input type="checkbox" name="delete" value="<%= recipes[i]._id %>">
                   <% } %>
             </li>
