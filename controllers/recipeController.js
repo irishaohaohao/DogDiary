@@ -15,7 +15,7 @@ exports.saveRecipes = ( req, res ) => {
 
   //console.log("skill = "+newSkill)
 
-  newStat.save()
+  newRecipe.save()
     .then( () => {
       res.redirect( '/recipeAdded' );
     } )
