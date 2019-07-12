@@ -176,9 +176,8 @@ app.get('/showPost/:id',
         forumPostController.showOnePost)
 
 //quiz 3
-app.get('/recipes', function(req, res, next) {
-  res.render('recipes',{title:"Recipes"});
-});
+app.get('/recipes',recipeController.getAllRecipes)
+
 app.post('/processRecipe', recipeController.saveRecipes)
 
 app.get('/recipeAdded', recipeController.getAllRecipes)
