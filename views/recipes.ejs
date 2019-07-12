@@ -16,6 +16,7 @@
     <form method="post" action="/recipeDelete">
       <ol>
         <% for(i = 0; i<recipes.length; i++){  %>
+          user is: <%=user._id%>
             <li>
                   <b> Name:<%= recipes[i].name %> </b>
                       user: <%= recipes[i].userName %>   <br>

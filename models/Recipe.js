@@ -7,7 +7,7 @@ var recipeSchema = Schema( {
   name: String,
   ingredient: String,
   description: String,
-  username: String,
+  userName: String,
   createdAt: Date,
   userID: ObjectId
 } );
