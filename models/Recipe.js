@@ -7,7 +7,8 @@ var recipeSchema = Schema( {
   ingredient: String,
   description: String,
   username: String,
-  createdAt: Date
+  createdAt: Date,
+  userID: String
 } );
 
 module.exports = mongoose.model( 'recipe', recipeSchema );
