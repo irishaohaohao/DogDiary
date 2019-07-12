@@ -1,7 +1,11 @@
 <%- include('bootheader') -%>
 
+<div class="jumbotron">
+    <h1>Recipes</h1>
+</div>
+
     <form method="post" action="/processRecipe">
-      Name: <input type="text" name="name">
+      Name of dish: <input type="text" name="name">
       <br>
       <br>
       Ingredient: <input type="text" name="ingredient">
@@ -18,7 +22,7 @@
         <% for(i = 0; i<recipes.length; i++){  %>
           user is: <%=user._id%>
             <li>
-                  <b> Name:<%= recipes[i].name %> </b>
+                  <b> Name of dish:<%= recipes[i].name %> </b>
                       user: <%= recipes[i].userName %>   <br>
                       Created At:<%= recipes[i].createdAt %>   <br>
                       ingredient:<%= recipes[i].ingredient %>    <br>
