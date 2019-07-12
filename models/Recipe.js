@@ -1,6 +1,7 @@
 'use strict';
 const mongoose = require( 'mongoose' );
 const Schema = mongoose.Schema;
+const ObjectId = mongoose.Schema.Types.ObjectId;
 
 var recipeSchema = Schema( {
   name: String,
@@ -8,7 +9,7 @@ var recipeSchema = Schema( {
   description: String,
   username: String,
   createdAt: Date,
-  userID: String
+  userID: ObjectId
 } );
 
 module.exports = mongoose.model( 'recipe', recipeSchema );
