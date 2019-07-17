@@ -12,11 +12,9 @@ User = require( './models/User' ),
 flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
-
-const commentController = require('./controllers/commentController')
 const profileController = require('./controllers/profileController')
-const forumPostController = require('./controllers/forumPostController')
 const recipeController = require('./controllers/recipeController')
+
 
 // Authentication
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
@@ -166,15 +164,6 @@ app.get('/', function(req, res, next) {
 });
 
 
-app.get('/forum',forumPostController.getAllForumPosts)
-
-app.post('/forum',forumPostController.saveForumPost)
-
-app.post('/forumDelete',forumPostController.deleteForumPost)
-
-app.get('/showPost/:id',
-        forumPostController.attachAllForumComments,
-        forumPostController.showOnePost)
 
 //quiz 3
 app.get('/recipes',recipeController.getAllRecipes)
@@ -192,25 +181,6 @@ app.get('/ageCalc', (req, res) => {
 });
 
 
-
-// myform demo ...
-
-app.get('/myform', function(req, res, next) {
-  res.render('myform',{title:"Form Demo"});
-});
-
-app.post('/processform', commentController.saveComment)
-
-app.get('/showComments', commentController.getAllComments)
-// app.use('/', indexRouter);  // this is how we use a router to handle the / path
-// but here we are more direct
-
-app.get('/showComment/:id', commentController.getOneComment)
-
-function processFormData(req,res,next){
-  res.render('formdata',
-     {title:"Form Data",coms:req.body.theComments})
-}
 
 
 
