@@ -180,8 +180,9 @@ app.get('/ageCalc', (req, res) => {
   res.render('ageCalc',{title:"Dog Age Calculator"});
 });
 
-
-
+app.get('/tutortraining', (req, res) => {
+  res.render('tutortraining',{title:"Dog Age Calculator"});
+});
 
 
 // catch 404 and forward to error handler

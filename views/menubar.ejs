@@ -12,7 +12,7 @@
 
       <% if (loggedIn) {%>
       <li class="nav-item">
-        <a class="nav-link" href="/showComments">ShowComments</a>
+        <a class="nav-link" href="/recipes">Create a Diary</a>
       </li>
       <% } %>
 
@@ -20,10 +20,10 @@
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Demo pages
+          Did you know?
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/ageCalc">Dog Age Ccalculator</a>
+          <a class="dropdown-item" href="/ageCalc">Dog Age Calculator</a>
         </div>
       </li>
 
@@ -40,9 +40,6 @@
       </li>
 
       <% if (loggedIn) { %>
-      <li class="nav-item">
-        <a class="nav-link" href="/forum">Forum</a>
-      </li>
 
       <li class="nav-item">
         <a class="nav-link active" href="/logout"> Logout</a>

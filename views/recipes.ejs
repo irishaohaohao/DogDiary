@@ -1,17 +1,18 @@
 <%- include('bootheader') -%>
-
+<%- include('menubar') -%>
 <div class="jumbotron">
     <h1>Diary Entry</h1>
 </div>
 
-    <form method="post" action="/processRecipe">
-      Title: <input type="text" name="name">
+
+<form method="post" action="/processRecipe">
+  Title: <textarea type="text" name="name" rows="2" cols="50"></textarea>
       <br>
       <br>
-      Highlight: <input type="text" name="ingredient">
+      Highlight: <textarea type="text" name="ingredient" rows="5" cols="50"></textarea>
       <br>
       <br>
-      Details: <input type="text" name="description">
+      Details: <textarea type="text" name="description" rows="5" cols="80"></textarea>
       <br>
       <br>
       <input type="submit" value="submit" class="btn btn-primary">
