@@ -1,14 +1,15 @@
 'use strict';
-const Recipe = require( '../models/Recipe' );
+const Diary = require( '../models/Diary' );
 
-exports.saveRecipes = ( req, res ) => {
+exports.savediaries = ( req, res ) => {
   //console.log("in saveSkill!")
   //console.dir(req)
-  let newRecipe = new Recipe(
+  let newDiary = new Diary(
    {
+    PicURL: req.body.PicURL,
     name: req.body.name,
-    ingredient: req.body.ingredient,
-    description: req.body.description,
+    highlight: req.body.highlight,
+    details: req.body.details,
     userName: req.user.userName,
     userID: req.user._id,
     createdAt: new Date()
@@ -16,22 +17,22 @@ exports.saveRecipes = ( req, res ) => {
 
   //console.log("skill = "+newSkill)
 
-  newRecipe.save()
+  newDiary.save()
     .then( () => {
-      res.redirect( '/recipeAdded' );
+      res.redirect( '/diaryAdded' );
     } )
     .catch( error => {
       res.send( error );
     } );
 };
 
-exports.getAllRecipes = ( req, res ) => {
+exports.getAlldiaries = ( req, res ) => {
   //gconsle.log('in getAllSkills')
-  Recipe.find({}).sort({createdAt: -1})
+  Diary.find({}).sort({createdAt: -1})
     .exec()
-    .then( ( recipes ) => {
-      res.render( 'recipes', {
-        recipes:recipes, title:"recipes"
+    .then( ( diaries ) => {
+      res.render( 'diary', {
+        diaries:diaries, title:"diaries"
       } );
     } )
     .catch( ( error ) => {
@@ -43,23 +44,23 @@ exports.getAllRecipes = ( req, res ) => {
     } );
 };
 
-exports.deleteRecipe = (req, res) => {
+exports.deleteDiary = (req, res) => {
   console.log("in deleteForumPost")
   let deleteId = req.body.delete
   if (typeof(deleteId)=='string') {
       // you are deleting just one thing ...
-      Recipe.deleteOne({_id:deleteId})
+      Diary.deleteOne({_id:deleteId})
            .exec()
-           .then(()=>{res.redirect('/recipes')})
+           .then(()=>{res.redirect('/diary')})
            .catch((error)=>{res.send(error)})
   } else if (typeof(deleteId)=='object'){
-      Recipe.deleteMany({_id:{$in:deleteId}})
+      Diary.deleteMany({_id:{$in:deleteId}})
            .exec()
-           .then(()=>{res.redirect('/recipes')})
+           .then(()=>{res.redirect('/diary')})
            .catch((error)=>{res.send(error)})
   } else if (typeof(deleteId)=='undefined'){
       //console.log("This is if they didn't select a skill")
-      res.redirect('/recipes')
+      res.redirect('/diary')
   } else {
     //console.log("This shouldn't happen!")
     res.send(`unknown deleteId: ${deleteId} Contact the Developer!!!`)

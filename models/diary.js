@@ -3,13 +3,14 @@ const mongoose = require( 'mongoose' );
 const Schema = mongoose.Schema;
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
-var recipeSchema = Schema( {
+var diarySchema = Schema( {
   name: String,
-  ingredient: String,
-  description: String,
+  highlight: String,
+  details: String,
   userName: String,
   createdAt: Date,
-  userID: ObjectId
+  userID: ObjectId,
+  PicURL: String
 } );
 
-module.exports = mongoose.model( 'recipe', recipeSchema );
+module.exports = mongoose.model( 'diary', diarySchema );

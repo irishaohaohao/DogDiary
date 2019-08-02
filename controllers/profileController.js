@@ -1,8 +1,8 @@
 'use strict';
 const User = require( '../models/User' );
 const axios = require('axios');
-var apikey = require('../config/apikey');
-console.dir(apikey)
+//var apikey = require('../config/apikey');
+//console.dir(apikey)
 
 
 exports.update = ( req, res ) => {
@@ -14,33 +14,25 @@ exports.update = ( req, res ) => {
     console.dir(p)
     p.userName = req.body.userName
     p.profilePicURL = req.body.profilePicURL
-    p.zipcode = req.body.zipcode
+    p.lastUpdate = new Date()
+    p.save()
+    .then(() => {
+      res.redirect( '/profile' );
+    })
+    .catch(function (error) {
+    // handle error
+      console.log(error);
+    })
 
     // make a call to zicode server to look up the city and state
     // and store them in the profile ....
-    const apikey = "OFq9gxenvlmXuShQbnLgGxiNmdOTRudO6tUjfXDPLzqzAMSMGSeCxnKPOCeD38W"
-    axios.get("https://www.zipcodeapi.com/rest/"+apikey+"/info.json/"+p.zipcode+"/degrees")
-      .then(function (response) {
-        // handle success
-        console.log(response);
-        console.dir(response);
-        p.city = response.data.city
-        p.state = response.data.state
-        p.lastUpdate = new Date()
-        p.save()
-        .then(() => {
-          res.redirect( '/profile' );
-        })
-
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-      .finally(function () {
-        // always executed
-      });
+    //const apikey = "OFq9gxenvlmXuShQbnLgGxiNmdOTRudO6tUjfXDPLzqzAMSMGSeCxnKPOCeD38W"
+    //axios.get("https://www.zipcodeapi.com/rest/"+apikey+"/info.json/"+p.zipcode+"/degrees")
   })
+  .catch(function (error) {
+  // handle error
+  console.log(error);
+})
 };
 
 exports.getAllProfiles = ( req, res ) => {

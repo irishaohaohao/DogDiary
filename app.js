@@ -4,7 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var apikey = require('./config/apikey');
+//var apikey = require('./config/apikey');
 // AUTHENTICATION MODULES
 session = require("express-session"),
 bodyParser = require("body-parser"),
@@ -13,7 +13,7 @@ flash = require('connect-flash')
 // END OF AUTHENTICATION MODULES
 
 const profileController = require('./controllers/profileController')
-const recipeController = require('./controllers/recipeController')
+const diaryController = require('./controllers/diaryController')
 
 
 // Authentication
@@ -52,7 +52,7 @@ app.use(express.static(path.join(__dirname, 'public')));
      HERE ARE THE AUTHENTICATION ROUTES
 **************************************************************************/
 
-app.use(session({ secret: 'zzbbyanana' }));
+app.use(session({ secret: 'zzbbyanana', resave: true}));
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -166,13 +166,13 @@ app.get('/', function(req, res, next) {
 
 
 //quiz 3
-app.get('/recipes',recipeController.getAllRecipes)
+app.get('/diary',diaryController.getAlldiaries)
 
-app.post('/processRecipe', recipeController.saveRecipes)
+app.post('/processDiary', diaryController.savediaries)
 
-app.get('/recipeAdded', recipeController.getAllRecipes)
+app.get('/diaryAdded', diaryController.getAlldiaries)
 
-app.post('/recipeDelete',recipeController.deleteRecipe)
+app.post('/diaryDelete',diaryController.deleteDiary)
 
 
 
@@ -180,8 +180,8 @@ app.get('/ageCalc', (req, res) => {
   res.render('ageCalc',{title:"Dog Age Calculator"});
 });
 
-app.get('/tutortraining', (req, res) => {
-  res.render('tutortraining',{title:"Dog Age Calculator"});
+app.get('/funfact', (req, res) => {
+  res.render('funfact',{title:"pop quiz"});
 });
 
 
