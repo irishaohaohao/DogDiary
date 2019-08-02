@@ -5,45 +5,23 @@
 </div>
 
 
-<form method="post" action="/processdiary">
-  Title: <textarea type="text" name="name" rows="2" cols="50"></textarea>
-  <br>
-  <br>
-  Picture URL: <textarea type="image" name="PicURL" rows="2" cols="50"></textarea>
+
+<form method="post" action="/processdiary" style="margin:auto; font-size:15px;">
+      Title: <textarea type="text" name="name" style="width:100%; border-radius:5px"></textarea>
       <br>
       <br>
-      highlight: <textarea type="text" name="highlight" rows="5" cols="50"></textarea>
+      Picture URL: <textarea type="image" name="PicURL" style="width:100%; border-radius:5px"></textarea>
       <br>
       <br>
-      details: <textarea type="text" name="details" rows="5" cols="80"></textarea>
+      Highlight: <textarea type="text" name="highlight" style="width:100%; border-radius:5px"></textarea>
+      <br>
+      <br>
+      Details: <textarea type="text" name="details" style="width:100%; border-radius:5px"></textarea>
       <br>
       <br>
       <input type="submit" value="submit" class="btn btn-primary">
 
+  </form>
 
-    </form>
-
-    <form method="post" action="/diaryDelete">
-      <ol>
-        <% for(i = 0; i<diaries.length; i++){  %>
-            <li>
-              <div class="card" style="width: 18rem;">
-                <img src="<%= diaries[i].PicURL%>" class="card-img-top" alt="https://utmsi.utexas.edu/components/com_easyblog/themes/wireframe/images/placeholder-image.png">
-                <div class="card-body">
-                  <p class="card-text"><b> user: </b> <%= diaries[i].userName %></p>
-                  <p class="card-text"><b> Title:</b> <%= diaries[i].name %></p>
-                  <p class="card-text"><b>  highlight:</b> <%= diaries[i].highlight %></p>
-                  <p class="card-text"><b> details:</b> <%= diaries[i].details %></p>
-                  <p class="card-text"> <b> Created At:<%= diaries[i].createdAt %></p>
-                </div>
-              </div>
-                  <% if (diaries[i].userID.equals(user._id)) { %>
-                      <input type="checkbox" name="delete" value="<%= diaries[i]._id %>">
-                  <% } %>
-            </li>
-        <% } %>
-        </ol>
-        <input type="submit" value="delete marked">
-      </form>
 
 <%- include('bootfooter') -%>

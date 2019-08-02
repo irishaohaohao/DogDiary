@@ -166,7 +166,11 @@ app.get('/', function(req, res, next) {
 
 
 //quiz 3
-app.get('/diary',diaryController.getAlldiaries)
+//app.get('/diary',diaryController.getAlldiaries)
+
+app.get('/diary', function(req, res, next) {
+  res.render('diary',{title:"DogDiary"});
+});
 
 app.post('/processDiary', diaryController.savediaries)
 

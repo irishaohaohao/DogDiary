@@ -31,7 +31,7 @@ exports.getAlldiaries = ( req, res ) => {
   Diary.find({}).sort({createdAt: -1})
     .exec()
     .then( ( diaries ) => {
-      res.render( 'diary', {
+      res.render( 'diaryCard', {
         diaries:diaries, title:"diaries"
       } );
     } )
@@ -51,16 +51,16 @@ exports.deleteDiary = (req, res) => {
       // you are deleting just one thing ...
       Diary.deleteOne({_id:deleteId})
            .exec()
-           .then(()=>{res.redirect('/diary')})
+           .then(()=>{res.redirect('/diaryAdded')})
            .catch((error)=>{res.send(error)})
   } else if (typeof(deleteId)=='object'){
       Diary.deleteMany({_id:{$in:deleteId}})
            .exec()
-           .then(()=>{res.redirect('/diary')})
+           .then(()=>{res.redirect('/diaryAdded')})
            .catch((error)=>{res.send(error)})
   } else if (typeof(deleteId)=='undefined'){
       //console.log("This is if they didn't select a skill")
-      res.redirect('/diary')
+      res.redirect('/diaryAdded')
   } else {
     //console.log("This shouldn't happen!")
     res.send(`unknown deleteId: ${deleteId} Contact the Developer!!!`)

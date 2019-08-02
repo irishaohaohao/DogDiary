@@ -1,0 +1,37 @@
+<%- include('bootheader') -%>
+<%- include('menubar') -%>
+
+<div class="jumbotron">
+    <h1 class="text-center">All Your Diary Entries</h1>
+    <p class="text-center">Delete Diary by selecting the checkbox </p>
+</div>
+
+<form method="post" action="/diaryDelete">
+  <ol>
+    <% console.log(diaries.length) %>
+    <% for(i = 0; i<diaries.length; i++){  %>
+        <li>
+          <% if (diaries[i].userID.equals(user._id)) { %>
+              <input type="checkbox" name="delete" value="<%= diaries[i]._id %>">
+          <% } %>
+          <br>
+          <br>
+          <div class="card" style="width: 40rem;">
+            <img src="<%= diaries[i].PicURL%>" class="card-img-top" alt="https://utmsi.utexas.edu/components/com_easyblog/themes/wireframe/images/placeholder-image.png">
+            <div class="card-body">
+              <p class="card-text"><b> User: </b> <%= diaries[i].userName %></p>
+              <p class="card-text"><b> Title:</b> <%= diaries[i].name %></p>
+              <p class="card-text"><b>  Highlight:</b> <%= diaries[i].highlight %></p>
+              <p class="card-text"><b> Details:</b> <%= diaries[i].details %></p>
+              <p class="card-text"> <small class="text-muted">Created At: <%= diaries[i].createdAt %></small> </p>
+            </div>
+          </div>
+        </li>
+        <hr>
+    <% } %>
+    </ol>
+    <br>
+    <input type="submit" value="Delete Marked">
+  </form>
+
+  <%- include('bootfooter') -%>
